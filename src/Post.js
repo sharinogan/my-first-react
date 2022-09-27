@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import Comment from './Comment';
 class Post extends Component {
     render() {
-        return <div>Hello Post</div>
+        return (
+            <div>
+                <h3>Hello Post!!!!</h3>
+                < Comment />
+            </div>
+        );
     }
 }
 
