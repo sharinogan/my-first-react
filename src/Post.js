@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import Comment from './Comment';
 
-const Post = (props) => {
-    const myId = props.myId;
-    const content = props.children;
-    return (
-        <div>
-            <h3>author : {myId}</h3>
-            <p>{content}</p>
-        </div>
-    )
+class Post extends Component {
+    render() {
+        return (
+            <div>
+                <h3>Author : { this.props.myId }</h3>
+                <p>{ this.props.children }</p>
+            </div>
+        );
+    }
 }
 
 export default Post;
