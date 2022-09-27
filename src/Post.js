@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import Comment from './Comment';
 
-const Post = () => {
+const Post = (props) => {
+    const myId = props.myId;
+    const content = props.children;
     return (
         <div>
-            <p>Content from Post</p>
+            <h3>author : {myId}</h3>
+            <p>{content}</p>
         </div>
     )
 }
