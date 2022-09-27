@@ -1,8 +1,9 @@
 import React from 'react';
-const Comment = () => {
+const Comment = (props) => {
+    const { userId, data } = props;
     return (
         <div>
-            <div>This is from Comment!!!</div>
+            <span>{data} from id: {userId}</span>
         </div>
     )
 }
