@@ -1,19 +1,12 @@
 import React from 'react';
-import Post from './Post';
-import Comment from './Comment';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
+  const myPic = 'https://placekitten.com/640/360';
   return (
-    <div className="App">
-      <div style={{color:'white', backgroundColor:'blue',
-          fontSize:30}}>Hello Inline Style CSS</div>
-      <p style={
-        {
-          color:'red',
-          fontSize: 14,
-          textAlign: 'center'
-        }
-      }>This is the another inline style css</p>
+    <div className="container">
+      <img className="img-thubnail" src={myPic} alt="kitten" />
     </div>
   );
 }
