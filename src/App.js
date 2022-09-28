@@ -7,22 +7,17 @@ class App extends Component {
     data: 0
   }
 
-  increase = () => {
+  increase(number){
     this.setState(prev => {
-      return { data: prev.data + 1 }
-    });
-  }
-  decrease() {
-    this.setState(prev => {
-      return { data: prev.data - 1 }
+      return { data: prev.data + number }
     });
   }
 
   render() {
+    const random = Math.round(Math.random() * 10) + 1;
     return (
       <div>
-        <button onClick={this.increase}>increase</button>
-        <button onClick={this.decrease}>decrease</button>
+        <button onClick={this.increase.bind(this, random)}>increase {random}</button>
         <div>{this.state.data}</div>
       </div>
     )
