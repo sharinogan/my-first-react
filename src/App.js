@@ -1,23 +1,39 @@
-import React, { useState } from 'react';
-import './App.css';
+import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Coupon from './Coupon';
 
-const App = () => {
-  const[state, setState] = useState({
-    data: 0
-  })
-  const increase = (number) => {
-    setState(prev => {
-      return { data: prev.data + number }
-    });
+class App extends Component {
+  state = {
+    coupon1: {
+      secretWord: 'thisDyxr23kjsado',
+      status: true
+    },
+    coupon2: {
+      secretWord: 'eipwourwqasdsad',
+      status: true
+    }
   }
-  const random = Math.round(Math.random() * 10) + 1;
-  return (
-    <div>
-      <button onClick={() => increase(random)}>increase {random}</button>
-      <div>{state.data}</div>
-    </div>
-  )
+
+  useCoupon = (name) => {
+    const updatedCoupon = {...this.state};
+    updatedCoupon[name].status = false;
+    this.setState(updatedCoupon);
+  }
+
+  render() {
+    return (
+      <div className="container">
+        <div className="row mt-4">
+          <Coupon data={this.state['coupon1']}
+                  setCoupon={this.useCoupon.bind(this, 
+                  'coupon1')} />
+          <Coupon data={this.state['coupon2']}
+                  setCoupon={this.useCoupon.bind(this, 
+                  'coupon2')} />
+        </div>
+      </div>
+    )
+  }
 }
 
 export default App;
