@@ -1,27 +1,23 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-class App extends Component {
-  state ={
+const App = () => {
+  const[state, setState] = useState({
     data: 0
-  }
-
-  increase(number){
-    this.setState(prev => {
+  })
+  const increase = (number) => {
+    setState(prev => {
       return { data: prev.data + number }
     });
   }
-
-  render() {
-    const random = Math.round(Math.random() * 10) + 1;
-    return (
-      <div>
-        <button onClick={this.increase.bind(this, random)}>increase {random}</button>
-        <div>{this.state.data}</div>
-      </div>
-    )
-  }
+  const random = Math.round(Math.random() * 10) + 1;
+  return (
+    <div>
+      <button onClick={() => increase(random)}>increase {random}</button>
+      <div>{state.data}</div>
+    </div>
+  )
 }
 
 export default App;
