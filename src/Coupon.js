@@ -18,7 +18,7 @@ class Coupon extends Component {
                     </div>
                     <div className="card-body">
                         <span className="mr-2">Coupon code :</span>
-                        <span className="badge badge-secondary">
+                        <span className="badge badge-primary">
                             {status?coupon:'Coupon has used already'}
                         </span>
                     </div>
