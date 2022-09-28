@@ -4,23 +4,26 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class App extends Component {
   state = {
-    inputValue: 'Origin Value'
+    value: 1
   };
   render() {
     return (
       <div>
-        <button onClick={this.myFunction}>Click</button>
+        <input
+          type="button"
+          onClick={this.increase}
+          value="INCREASE" />
       </div>
     )
   }
-  myFunction = () => {
-    this.setState (
-      { inputValue: 'New Updated Value'},
+  increase = () => {
+    this.setState(
+      (prevState) => {
+        return { value: prevState.value + 1 }
+      },
       () => {
-        console.log('After setState Complete');
-        console.log(this.state.inputValue);
-      });
-    console.log('Before setState complete');
-    console.log(this.state.inputValue);
+        console.log(this.state.value);
+      }
+    );
   }
 }
