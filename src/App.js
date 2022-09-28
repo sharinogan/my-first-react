@@ -7,16 +7,22 @@ class App extends Component {
     data: 0
   }
 
-  increase() {
+  increase = () => {
     this.setState(prev => {
       return { data: prev.data + 1 }
+    });
+  }
+  decrease() {
+    this.setState(prev => {
+      return { data: prev.data - 1 }
     });
   }
 
   render() {
     return (
       <div>
-        <button onClick={this.increase.bind(this)}>increase</button>
+        <button onClick={this.increase}>increase</button>
+        <button onClick={this.decrease}>decrease</button>
         <div>{this.state.data}</div>
       </div>
     )
